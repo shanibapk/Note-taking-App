@@ -59,8 +59,8 @@ class _CreateNoteState extends State<CreateNote> {
           children: [
             Center(
                 child: Text(widget.title,
-                  style: GoogleFonts.lobster(
-                      textStyle: TextStyle(fontSize: 25)
+                  style: GoogleFonts.bebasNeue(
+                      textStyle: TextStyle(fontSize: 30)
                   ),
                 )
             ),

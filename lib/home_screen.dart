@@ -328,7 +328,6 @@ class CustomDrawer extends StatelessWidget {
             ),
             TextButton(onPressed: ()async{
               await FirebaseAuth.instance.signOut();
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
             },
                 child:Text( 'SIGNOUT',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),))
           ],

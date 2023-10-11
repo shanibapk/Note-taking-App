@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 import 'home_screen.dart';
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -167,7 +169,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                     onPressed: (){
                       handleSignin();
-
                     },
                     child: Text('SIGNIN',style: TextStyle(color: Colors.white),)),
               ),
@@ -198,7 +199,6 @@ class _SignUpState extends State<SignUp> {
                           image: AssetImage('assets/gogo.jpg'),
                         ),
                         color: Colors.white,
-
                       ),
                     ),
                     TextButton(onPressed: (){},

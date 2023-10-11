@@ -16,7 +16,7 @@ class SubFile extends StatefulWidget {
 class _SubFileState extends State<SubFile> {
   bool edit = true;
   TextEditingController nte = TextEditingController();
-  Color selectedColor = Colors.white; // Default page background color
+  Color selectedColor = Colors.white;
 
   void _openColorPickerDialog() {
     showDialog(
@@ -44,7 +44,6 @@ class _SubFileState extends State<SubFile> {
             TextButton(
               child: Text('Apply'),
               onPressed: () {
-                // You can save the selectedColor value in your database or use it as needed.
                 Navigator.of(context).pop();
               },
             ),
@@ -64,7 +63,6 @@ class _SubFileState extends State<SubFile> {
     var dataList2 = [];
     try {
       CollectionReference collectionReference = FirebaseFirestore.instance.collection('NotePad');
-      // ... your existing code for fetching data
       nte.text = widget.note;
     } catch (e) {
       print('Error : $e');
