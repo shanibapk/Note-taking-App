@@ -16,6 +16,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Color> cardColors = [
+    Colors.red.shade100,
+    Colors.blue.shade100,
+    Colors.green.shade100,
+    Colors.yellow.shade100,
+    Colors.orange.shade100,
+    // Add more colors as needed
+  ];
   TextEditingController txt = TextEditingController();
   List<String> notes = List.empty(growable: true);
   List keysMainList = [];
@@ -68,16 +76,16 @@ class _HomeScreenState extends State<HomeScreen> {
       }).toList();
     });
   }
-  Future<void> toggleFavoriteStatus(String noteTitle, bool isFavorite) async {
-    try {
-      CollectionReference collectionReference =
-      FirebaseFirestore.instance.collection('NotePad');
-      DocumentReference docRef = collectionReference.doc(noteTitle);
-      await docRef.update({'isFavorite': !isFavorite});
-    } catch (e) {
-      print('Error updating favorite status: $e');
-    }
-  }
+  // Future<void> toggleFavoriteStatus(String noteTitle, bool isFavorite) async {
+  //   try {
+  //     CollectionReference collectionReference =
+  //     FirebaseFirestore.instance.collection('NotePad');
+  //     DocumentReference docRef = collectionReference.doc(noteTitle);
+  //     await docRef.update({'isFavorite': !isFavorite});
+  //   } catch (e) {
+  //     print('Error updating favorite status: $e');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +161,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) {
                   final note =
                   isSearching ? filteredNotes[index] : notes[index];
+                  final cardColor = cardColors[index % cardColors.length];
                   return Card(
+                    color: cardColor,
                     child: ListTile(
                         title: Text(note),
                         onTap: () {
@@ -268,7 +278,7 @@ class CustomDrawer extends StatelessWidget {
 
         alignment: Alignment.topLeft,
         height: 500,
-        width: 230,
+        width: 250,
         child: ListView(
           children: [
             Container(
